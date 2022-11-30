@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Final Graph Project</string>
+    <string name="tv_Welcome"></string>
 </resources>
