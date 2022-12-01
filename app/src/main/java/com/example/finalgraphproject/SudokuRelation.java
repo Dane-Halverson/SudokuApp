@@ -2,18 +2,22 @@ package com.example.finalgraphproject;
 
 public class SudokuRelation implements EdgeInterface {
 
-    SudokuRelation() {
+    SudokuTile dst;
+    SudokuTile src;
 
+    SudokuRelation(SudokuTile s, SudokuTile d) {
+        dst = d;
+        src = s;
     }
 
     @Override
-    public Vertex getDst() {
-        return null;
+    public VertexInterface getDst() {
+        return dst;
     }
 
     @Override
-    public Vertex getSrc() {
-        return null;
+    public VertexInterface getSrc() {
+        return src;
     }
 
 

@@ -2,7 +2,7 @@ package com.example.finalgraphproject;
 
 public interface EdgeInterface {
 
-    public Vertex getSrc();
-    public Vertex getDst();
+    public VertexInterface getSrc();
+    public VertexInterface getDst();
 
 }
