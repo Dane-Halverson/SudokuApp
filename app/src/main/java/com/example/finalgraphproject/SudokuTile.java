@@ -1,6 +1,6 @@
 package com.example.finalgraphproject;
 
-public class SudokuTile implements VertexInterface {
+public class SudokuTile extends Vertex {
 
     SudokuTile(Boolean hasStarterNumber) {
         visited = false;

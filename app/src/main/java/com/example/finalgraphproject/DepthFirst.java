@@ -21,7 +21,7 @@ public class DepthFirst {
             valid = false;
 
         if (valid) {
-            LinkedList<SudokuTile> neighbors = g.getNeighbors(v);
+            LinkedList<SudokuTile> neighbors = (LinkedList<SudokuTile>) g.getNeighbors(v);
 
             for (SudokuTile neighbor : neighbors) {
                 if (!neighbor.isVisited()) {
