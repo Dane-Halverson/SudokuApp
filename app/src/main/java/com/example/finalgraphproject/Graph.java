@@ -1,9 +1,9 @@
 package com.example.finalgraphproject;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.HashMap; // import the HashMap class
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -18,7 +18,7 @@ public abstract class Graph implements Serializable {
     }
 
     /**
-     * @param s the name of the vertex to add
+     * @param v vertex to add
      */
     public void addVertex(VertexInterface v) {
         //every time you add a vertex, you add another linked list ro represent the edges
@@ -33,10 +33,7 @@ public abstract class Graph implements Serializable {
     }
 
 
-    /**
-     * @param src source edge
-     * @param dst destination edge
-     */
+
     public void addEdge(EdgeInterface e) {
 
         edges.get(e.getSrc()).add(e);
@@ -75,22 +72,20 @@ public abstract class Graph implements Serializable {
      * @param v the vertex to get
      * @return a list of neighbor vertices to the vertex
      */
-    public LinkedList<Vertex> getNeighbors(VertexInterface v) {
-        HashSet<VertexInterface> s = new HashSet<>();
-        for (EdgeInterface e: edges.get(v)) {
+    public LinkedList<VertexInterface> getNeighbors(VertexInterface v) {
+        LinkedList<VertexInterface> s = new LinkedList<>();
+        for (EdgeInterface e: Objects.requireNonNull(edges.get(v))) {
             s.add(e.getDst());
         }
-        return null;
+        return s;
     }
 
     /**
      * @return a list of all vertices
      */
     public LinkedList<VertexInterface> getAllVertices() {
-        LinkedList<VertexInterface> l = new LinkedList<>();
         Set<VertexInterface> s = edges.keySet();
-        l.addAll(s);
 
-        return l;
+        return new LinkedList<>(s);
     }
 }

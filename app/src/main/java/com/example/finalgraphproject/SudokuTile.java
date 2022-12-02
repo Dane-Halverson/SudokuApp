@@ -2,9 +2,9 @@ package com.example.finalgraphproject;
 
 public class SudokuTile extends Vertex {
 
-    SudokuTile(Boolean hasStarterNumber) {
+    SudokuTile() {
         visited = false;
-        startValue = hasStarterNumber;
+        startValue = false;
     }
 
     private Integer number;

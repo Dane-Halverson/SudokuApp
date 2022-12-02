@@ -1,13 +1,19 @@
 package com.example.finalgraphproject;
 
-import java.util.HashMap;
-import java.util.HashSet;
+
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class SudokuGraph extends Graph {
+public class SudokuGraph extends Graph implements Serializable {
 
     SudokuGraph() {
 
+    }
+
+    public void addAllRelations(LinkedList<SudokuRelation> l) {
+        for (SudokuRelation r: l) {
+            addEdge(r);
+        }
     }
 
 

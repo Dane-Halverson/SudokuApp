@@ -2,10 +2,12 @@ package com.example.finalgraphproject;
 
 import java.util.LinkedList;
 
-public class DepthFirst {
-    public DepthFirst() {
+public class DepthFirstTileValidation {
+
+    public DepthFirstTileValidation() {
 
     }
+
     public Boolean TraverseGraph(SudokuGraph g, SudokuTile v) {
         Boolean valid = traverse(g, v, v);
         g.resetVertexStatus();
@@ -21,7 +23,7 @@ public class DepthFirst {
             valid = false;
 
         if (valid) {
-            LinkedList<SudokuTile> neighbors = (LinkedList<SudokuTile>) g.getNeighbors(v);
+            LinkedList<SudokuTile> neighbors = (SudokuTile) g.getNeighbors(v);
 
             for (SudokuTile neighbor : neighbors) {
                 if (!neighbor.isVisited()) {
