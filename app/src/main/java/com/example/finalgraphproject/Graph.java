@@ -8,7 +8,7 @@ import java.util.Set;
 
 
 public abstract class Graph implements Serializable {
-    private final HashMap<VertexInterface, LinkedList<EdgeInterface>> edges;
+    protected final HashMap<VertexInterface, LinkedList<EdgeInterface>> edges;
 
     /**
      * constructor for graph

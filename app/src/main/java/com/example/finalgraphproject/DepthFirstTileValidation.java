@@ -1,6 +1,7 @@
 package com.example.finalgraphproject;
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class DepthFirstTileValidation {
 
@@ -19,16 +20,16 @@ public class DepthFirstTileValidation {
         v.setVisited();
         //System.out.println("Vertex: " + v.getLabel());
 
-        if ((v.getNumber() == firstTile.getNumber()) && v != firstTile)
+        if ((Objects.equals(v.getNumber(), firstTile.getNumber())) && v != firstTile)
             valid = false;
 
         if (valid) {
-            LinkedList<SudokuTile> neighbors = (SudokuTile) g.getNeighbors(v);
+            LinkedList<VertexInterface> neighbors = g.getNeighbors(v);
 
-            for (SudokuTile neighbor : neighbors) {
+            for (VertexInterface neighbor : neighbors) {
                 if (!neighbor.isVisited()) {
                     neighbor.setVisited();
-                    valid = traverse(g, neighbor, firstTile);
+                    valid = traverse(g, (SudokuTile) neighbor, firstTile);
                 }
             }
         }

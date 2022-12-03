@@ -7,12 +7,17 @@ public class SudokuTable implements Serializable {
     private SudokuTile[][] table;
 
     public SudokuTable() {
-        table = new SudokuTile[8][8];
-
-
+        table = new SudokuTile[9][9];
+        for (int i = 0; i < 9; ++i) {
+            for (int j = 0; j < 9; ++j) {
+                table[i][j] = new SudokuTile();
+            }
+        }
     }
 
+
     public void set(Integer value, Integer row, Integer column) {
+
         table[row][column].setNumber(value);
     }
 

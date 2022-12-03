@@ -9,9 +9,7 @@ public class Vertex implements VertexInterface{
      * sets label to "Unassigned"
      */
 
-    /**
-     * @param label what to set the label to
-     */
+
     public Vertex() {
     }
 
@@ -38,9 +36,12 @@ public class Vertex implements VertexInterface{
         visited = false;
     }
 
-    /**
-     * @return the label
-     */
+    @Override
+    public boolean isVisited() {
+        return visited;
+    }
+
+
 }
 
 

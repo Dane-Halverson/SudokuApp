@@ -5,4 +5,5 @@ public interface VertexInterface {
     void setVisited();
     void resetVisited();
 
+    boolean isVisited();
 }

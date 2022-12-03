@@ -11,8 +11,8 @@ public class SudokuGraphBuilder {
     public SudokuGraph buildGraph(SudokuTable t) {
         SudokuGraph g = new SudokuGraph();
 
-        for (int i = 0; i < 8; ++i) {
-            for (int j = 0; j < 8; ++j) {
+        for (int i = 0; i <= 8; ++i) {
+            for (int j = 0; j <= 8; ++j) {
                 g.addVertex(t.get(i, j));
                 if (t.get(i, j).getNumber() != null) {
                     t.get(i, j).setIfStartTile(true);
@@ -20,16 +20,13 @@ public class SudokuGraphBuilder {
             }
         }
 
-        LinkedList<SudokuRelation> r = new LinkedList<>();
+        LinkedList<SudokuRelation> r = getRelations(t);
 
+        for (SudokuRelation i: r) {
+            g.addEdge(i);
+        }
 
-
-
-
-
-
-
-
+        //g.addAllRelations(r);
         return  g;
     }
 
@@ -42,6 +39,7 @@ public class SudokuGraphBuilder {
                 //columns
                 for ( int dstR = 0; dstR <= 8; ++dstR) {
                     if (dstR != srcR)
+                        //System.out.println("added");
                         r.add(new SudokuRelation(t.get(srcR, srcC),  t.get(dstR, srcC)));
                 }
                 //rows
@@ -50,8 +48,7 @@ public class SudokuGraphBuilder {
                         r.add(new SudokuRelation(t.get(srcR, srcC),  t.get(srcR, dstC)));
                 }
                 //boxes
-                getBoxRelations(t, srcR, srcC);
-
+                //getBoxRelations(t, srcR, srcC);
 
             }
         }

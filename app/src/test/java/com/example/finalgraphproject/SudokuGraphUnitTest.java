@@ -12,6 +12,57 @@ import static org.junit.Assert.*;
 public class SudokuGraphUnitTest {
     @Test
     public void createGraph() {
+        SudokuGraphBuilder b = new SudokuGraphBuilder();
+        SudokuTable t = new SudokuTable();
+        SudokuTile tile = new SudokuTile();
+        tile.setNumber(7);
 
+        t.set(5, 0, 0);
+
+
+        t.set(3, 0, 1);
+        t.set(7, 0, 4);
+        t.set(6, 1, 0);
+        t.set(1, 1, 3);
+        t.set(9, 1, 4);
+        t.set(5, 1, 5);
+        t.set(9, 2, 1);
+        t.set(8, 2, 2);
+        t.set(6, 2, 7);
+
+        t.set(8, 3, 0);
+        t.set(6, 3, 4);
+        t.set(3, 3, 8);
+        t.set(4, 4, 0);
+        t.set(8, 4, 3);
+        t.set(3, 4, 5);
+        t.set(1, 4, 8);
+        t.set(7, 5, 0);
+        t.set(2, 5, 4);
+        t.set(6, 5, 8);
+
+        t.set(6, 6, 1);
+        t.set(2, 6, 6);
+        t.set(8, 6, 7);
+        t.set(4, 7, 3);
+        t.set(1, 7, 4);
+        t.set(9, 7, 5);
+        t.set(5, 7, 8);
+        t.set(8, 8, 4);
+        t.set(7, 8, 7);
+        t.set(9, 8, 8);
+
+        SudokuGraph g = new SudokuGraph();
+        SudokuRelation relation = new SudokuRelation (t.get(0, 0), t.get(0, 1));
+        g.addEdge(relation);
+        /*
+        SudokuGraph g = b.buildGraph(t);
+        DepthFirstTileValidation d = new DepthFirstTileValidation();
+        assert (d.TraverseGraph(g, t.get(0, 0)));
+
+        t.set(5, 0, 1);
+        SudokuGraph g2 = b.buildGraph(t);
+        assert (!d.TraverseGraph(g2, t.get(0, 0)));
+        */
     }
 }
