@@ -22,11 +22,7 @@ public class SudokuGraphBuilder {
 
         LinkedList<SudokuRelation> r = getRelations(t);
 
-        for (SudokuRelation i: r) {
-            g.addEdge(i);
-        }
-
-        //g.addAllRelations(r);
+        g.addAllRelations(r);
         return  g;
     }
 

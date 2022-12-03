@@ -52,10 +52,8 @@ public class SudokuGraphUnitTest {
         t.set(7, 8, 7);
         t.set(9, 8, 8);
 
-        SudokuGraph g = new SudokuGraph();
-        SudokuRelation relation = new SudokuRelation (t.get(0, 0), t.get(0, 1));
-        g.addEdge(relation);
-        /*
+
+
         SudokuGraph g = b.buildGraph(t);
         DepthFirstTileValidation d = new DepthFirstTileValidation();
         assert (d.TraverseGraph(g, t.get(0, 0)));
@@ -63,6 +61,6 @@ public class SudokuGraphUnitTest {
         t.set(5, 0, 1);
         SudokuGraph g2 = b.buildGraph(t);
         assert (!d.TraverseGraph(g2, t.get(0, 0)));
-        */
+
     }
 }
