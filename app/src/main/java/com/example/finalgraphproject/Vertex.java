@@ -41,6 +41,11 @@ public class Vertex implements VertexInterface{
         return visited;
     }
 
+    @Override
+    public Integer getNumber() {
+        return null;
+    }
+
 
 }
 

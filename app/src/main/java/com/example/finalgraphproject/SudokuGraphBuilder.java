@@ -20,14 +20,11 @@ public class SudokuGraphBuilder {
             }
         }
 
-        LinkedList<SudokuRelation> r = getRelations(t);
-
-        g.addAllRelations(r);
+        getRelations(g, t);
         return  g;
     }
 
-    private LinkedList<SudokuRelation> getRelations(SudokuTable t) {
-        LinkedList<SudokuRelation> r = new LinkedList<>();
+    private void getRelations(SudokuGraph g, SudokuTable t) {
 
         for (int srcR = 0; srcR <= 8; ++srcR) {
             for (int srcC = 0; srcC <= 8; ++srcC) {
@@ -36,62 +33,34 @@ public class SudokuGraphBuilder {
                 for ( int dstR = 0; dstR <= 8; ++dstR) {
                     if (dstR != srcR)
                         //System.out.println("added");
-                        r.add(new SudokuRelation(t.get(srcR, srcC),  t.get(dstR, srcC)));
+                        g.addEdge(new SudokuRelation(t.get(srcR, srcC),  t.get(dstR, srcC)));
                 }
                 //rows
                 for ( int dstC = 0; dstC <= 8; ++dstC) {
                     if (dstC != srcC)
-                        r.add(new SudokuRelation(t.get(srcR, srcC),  t.get(srcR, dstC)));
+                        g.addEdge(new SudokuRelation(t.get(srcR, srcC),  t.get(srcR, dstC)));
                 }
                 //boxes
-                //getBoxRelations(t, srcR, srcC);
+                getBoxRelations(g, t, srcR, srcC);
+            }
+        }
 
+    }
+
+    private void getBoxRelations(SudokuGraph g, SudokuTable t, int srcR, int srcC) {
+
+
+        for (int i = srcR/3 * 3; i <( srcR/3 *3) + 3; ++i) {
+            for (int j = srcC/3 *3; j < (srcC/3*3) +3; ++j) {
+                if (!g.getNeighbors(t.get(srcR, srcC)).contains(t.get(i, j)) && t.get(srcR, srcC) != t.get(i, j)) {
+                    g.addEdge(new SudokuRelation(t.get(srcR, srcC), t.get(i, j)));
+                }
             }
         }
 
 
 
-        return r;
     }
 
-    private LinkedList<SudokuRelation> getBoxRelations(SudokuTable t, int srcR, int srcC) {
-        LinkedList<SudokuRelation> r = new LinkedList<>();
 
-        //top left
-        if ((srcR % 3 == 0) && (srcC % 3 == 0)) {
-            r.add(new SudokuRelation(t.get(srcR, srcC),  t.get(srcR+1, srcC+1)));
-            r.add(new SudokuRelation(t.get(srcR, srcC),  t.get(srcR+2, srcC+1)));
-            r.add(new SudokuRelation(t.get(srcR, srcC),  t.get(srcR+1, srcC+2)));
-            r.add(new SudokuRelation(t.get(srcR, srcC),  t.get(srcR+2, srcC+2)));
-        }
-        //mid left
-        else if ((srcR % 3 == 1) && (srcC % 3 == 0)) {
-
-        }
-        //bottom left
-        else if ((srcR % 3 == 2) && (srcC % 3 == 0)) {
-
-        }
-        else if ((srcR % 3 == 0) && (srcC % 3 == 1)) {
-
-        }
-        else if ((srcR % 3 == 1) && (srcC % 3 == 1)) {
-
-        }
-        else if ((srcR % 3 == 2) && (srcC % 3 == 1)) {
-
-        }
-        else if ((srcR % 3 == 0) && (srcC % 3 == 2)) {
-
-        }
-        else if ((srcR % 3 == 1) && (srcC % 3 == 2)) {
-
-        }
-        else if ((srcR % 3 == 2) && (srcC % 3 == 2)) {
-
-        }
-
-
-        return r;
-    }
 }

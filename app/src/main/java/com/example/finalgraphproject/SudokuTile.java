@@ -1,7 +1,9 @@
 package com.example.finalgraphproject;
 
 
-public class SudokuTile extends Vertex {
+import java.io.Serializable;
+
+public class SudokuTile extends Vertex implements Serializable {
 
     SudokuTile() {
         visited = false;
@@ -27,6 +29,7 @@ public class SudokuTile extends Vertex {
         return visited;
     }
 
+    @Override
     public Integer getNumber() {
         return number;
     }

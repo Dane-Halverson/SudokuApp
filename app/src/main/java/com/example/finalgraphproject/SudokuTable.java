@@ -25,4 +25,17 @@ public class SudokuTable implements Serializable {
         return table[row][column];
     }
 
+    public void printTable() {
+        for (SudokuTile[] r: table) {
+            for (SudokuTile t: r) {
+                if (t.getNumber() == null) {
+                    System.out.print(0 + " ");
+                }
+                else
+                    System.out.print(t.getNumber() + " ");
+            }
+            System.out.println();
+        }
+    }
+
 }

@@ -6,4 +6,6 @@ public interface VertexInterface {
     void resetVisited();
 
     boolean isVisited();
+
+    Integer getNumber();
 }

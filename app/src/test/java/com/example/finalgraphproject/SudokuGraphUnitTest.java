@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class SudokuGraphUnitTest {
+public class SudokuGraphUnitTest extends SudokuSolver {
     @Test
     public void createGraph() {
         SudokuGraphBuilder b = new SudokuGraphBuilder();
@@ -18,8 +18,6 @@ public class SudokuGraphUnitTest {
         tile.setNumber(7);
 
         t.set(5, 0, 0);
-
-
         t.set(3, 0, 1);
         t.set(7, 0, 4);
         t.set(6, 1, 0);
@@ -54,13 +52,24 @@ public class SudokuGraphUnitTest {
 
 
 
-        SudokuGraph g = b.buildGraph(t);
-        DepthFirstTileValidation d = new DepthFirstTileValidation();
-        assert (d.TraverseGraph(g, t.get(0, 0)));
+        
 
-        t.set(5, 0, 1);
-        SudokuGraph g2 = b.buildGraph(t);
-        assert (!d.TraverseGraph(g2, t.get(0, 0)));
+        SudokuSolver sudokuSolver = new SudokuSolver();
+        //assert(sudokuSolver.isValid(g, t.get(0, 0)));
+
+        t.printTable();
+
+
+
+        System.out.println();
+
+        sudokuSolver.solve(t);
+
+        t.printTable();
+
+
+
+
 
     }
 }
