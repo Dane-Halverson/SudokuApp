@@ -28,11 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void OnClickOne(View view) {
-        view.setBackground(AppCompatResources.getDrawable(this, R.drawable.tile_pressed));
         d.SetTile(1);
         d.dataUpdated();
-
-        view.setBackground(AppCompatResources.getDrawable(this, R.drawable.tile_border));
     }
 
     public void OnClickTwo(View view) {
