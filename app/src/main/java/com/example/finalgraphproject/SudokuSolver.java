@@ -9,15 +9,15 @@ public class SudokuSolver {
 
     }
 
-    public SudokuTable solve(SudokuTable t) {
+    public void solve(SudokuTable t) {
         SudokuGraphBuilder b = new SudokuGraphBuilder();
         SudokuGraph g = b.buildGraph(t);
 
         if (!DFSolve(g, t.get(0, 0), 1)) {
-            System.out.println("false");
+            throw new RuntimeException("Table not solvable");
         }
 
-        return t;
+
     }
 
 
@@ -93,14 +93,12 @@ public class SudokuSolver {
             }
         }
         return true;
-
-
     }
 
     protected Boolean isSafe(SudokuGraph g, SudokuTile t, Integer i) {
         LinkedList<VertexInterface> l = g.getNeighbors(t);
         for (VertexInterface v : l) {
-            if (v.getNumber() == (i)) {
+            if (Objects.equals(v.getNumber(), i)) {
                 return false;
             }
         }

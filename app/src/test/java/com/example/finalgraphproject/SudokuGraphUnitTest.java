@@ -67,6 +67,14 @@ public class SudokuGraphUnitTest extends SudokuSolver {
 
         t.printTable();
 
+        SudokuTable t2 = new SudokuTable();
+
+        sudokuSolver.solve(t2);
+
+        System.out.println();
+
+        t2.printTable();
+
 
 
 
