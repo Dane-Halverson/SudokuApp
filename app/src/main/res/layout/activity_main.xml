@@ -10,7 +10,6 @@
 
     <com.example.finalgraphproject.DrawnSudokuTableView
         android:id="@+id/sudokuTable"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="1:1"
@@ -18,6 +17,177 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="409dp"
+        android:layout_height="318dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sudokuTable">
+
+
+        <TextView
+            android:id="@+id/tv_number_one"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tile_border"
+            android:fontFamily="sans-serif"
+            android:onClick="OnClickOne"
+            android:text="@string/s_one"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/tv_number_2"
+            app:layout_constraintHorizontal_bias="0.879"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_number_2" />
+
+        <TextView
+            android:id="@+id/tv_number_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/tile_border"
+            android:fontFamily="sans-serif"
+            android:onClick="OnClickTwo"
+            android:text="@string/s_two"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_number_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tile_border"
+            android:fontFamily="sans-serif"
+            android:onClick="OnClickThree"
+            android:text="@string/s_three"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.094"
+            app:layout_constraintStart_toEndOf="@+id/tv_number_2"
+            app:layout_constraintTop_toTopOf="@+id/tv_number_2" />
+
+        <TextView
+            android:id="@+id/tv_number_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tile_border"
+            android:fontFamily="sans-serif"
+            android:onClick="OnClickFour"
+            android:text="@string/s_four"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/tv_number_one"
+            app:layout_constraintTop_toTopOf="@+id/tv_number_5" />
+
+        <TextView
+            android:id="@+id/tv_number_5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/tile_border"
+            android:fontFamily="sans-serif"
+            android:onClick="OnClickFive"
+            android:text="@string/s_five"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_number_2" />
+
+        <TextView
+            android:id="@+id/tv_number_6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tile_border"
+            android:fontFamily="sans-serif"
+            android:onClick="OnClickSix"
+            android:text="@string/s_six"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="@+id/tv_number_3"
+            app:layout_constraintTop_toTopOf="@+id/tv_number_5" />
+
+        <TextView
+            android:id="@+id/tv_number_7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tile_border"
+            android:fontFamily="sans-serif"
+            android:onClick="OnClickSeven"
+            android:text="@string/s_seven"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/tv_number_4"
+            app:layout_constraintTop_toTopOf="@+id/tv_number_8" />
+
+        <TextView
+            android:id="@+id/tv_number_8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/tile_border"
+            android:fontFamily="sans-serif"
+            android:onClick="OnClickEight"
+            android:text="@string/s_eight"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_number_5" />
+
+        <TextView
+            android:id="@+id/tv_number_9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tile_border"
+            android:fontFamily="sans-serif"
+            android:onClick="OnClickNine"
+            android:text="@string/s_nine"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="@+id/tv_number_6"
+            app:layout_constraintTop_toTopOf="@+id/tv_number_8" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="98dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:onClick="OnClickDelete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_number_7"
+            app:layout_constraintTop_toBottomOf="@+id/tv_number_7"
+            app:srcCompat="@drawable/backspace" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/b_solve"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tv_number_9"
+            app:layout_constraintTop_toBottomOf="@+id/tv_number_9" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
