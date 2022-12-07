@@ -2,7 +2,9 @@ package com.example.finalgraphproject;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -26,8 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void OnClickOne(View view) {
+        view.setBackground(AppCompatResources.getDrawable(this, R.drawable.tile_pressed));
         d.SetTile(1);
         d.dataUpdated();
+
+        view.setBackground(AppCompatResources.getDrawable(this, R.drawable.tile_border));
     }
 
     public void OnClickTwo(View view) {

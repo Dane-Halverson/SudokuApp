@@ -8,6 +8,8 @@ public interface MVP {
 
 
     public interface Model {
-        boolean solveTable(Integer[][] table);
+        SudokuTable makeSudokuTable(Integer[][] table);
+        boolean solveTable(SudokuTable table);
+        Integer[][] makeArray(SudokuTable t);
     }
 }
