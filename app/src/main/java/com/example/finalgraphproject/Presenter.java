@@ -65,7 +65,6 @@ public class Presenter implements DrawContract.DrawPresenter {
     /**
      * @param canvas canvas to draw to
      */
-    @Override
     public void drawTable(Canvas canvas) {
         Paint dimLine = new Paint();
         Integer w = canvas.getWidth();
