@@ -6,7 +6,7 @@ import android.graphics.Paint;
 
 public class PresenterSolved implements DrawContractSolved.DrawPresenter {
 
-    private class Vertex {
+    private static class Vertex {
         public float x;
         public float y;
         public Integer val;
@@ -21,7 +21,7 @@ public class PresenterSolved implements DrawContractSolved.DrawPresenter {
     }
 
 
-    private DrawContractSolved.DrawingView view;
+    private final DrawContractSolved.DrawingView view;
 
     private final Vertex[][] tiles = new Vertex[9][9];
 

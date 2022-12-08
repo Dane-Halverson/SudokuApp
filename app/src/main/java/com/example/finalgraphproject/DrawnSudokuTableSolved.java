@@ -7,7 +7,7 @@ import android.view.View;
 
 public class DrawnSudokuTableSolved extends View implements DrawContractSolved.DrawingView {
 
-    private DrawContractSolved.DrawPresenter drawPresenter;
+    private final DrawContractSolved.DrawPresenter drawPresenter;
 
 
     public DrawnSudokuTableSolved(Context context, AttributeSet attrs) {

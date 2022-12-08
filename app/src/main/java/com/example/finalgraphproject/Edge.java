@@ -1,13 +1,12 @@
 package com.example.finalgraphproject;
 
 /**
- * @class edge
  * a class to define an edge between two vertices
  */
 public class Edge implements EdgeInterface{
 
-    private Vertex src;
-    private Vertex dst;
+    private final Vertex src;
+    private final Vertex dst;
 
 
 

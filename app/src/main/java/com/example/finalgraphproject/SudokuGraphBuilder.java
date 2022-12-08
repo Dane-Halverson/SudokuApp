@@ -1,6 +1,5 @@
 package com.example.finalgraphproject;
 
-import java.util.LinkedList;
 
 public class SudokuGraphBuilder {
 

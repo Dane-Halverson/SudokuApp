@@ -40,7 +40,7 @@ public class SolvedTable extends AppCompatActivity implements MVP.ViewPresenter 
 
 
     public void OnClickReturn(View view) {
-        Intent back = new Intent(this, SolvedTable.class);
+        Intent back = new Intent(this, MainActivity.class);
         startActivity(back);
 
     }

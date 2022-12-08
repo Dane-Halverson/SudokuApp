@@ -3,17 +3,12 @@ package com.example.finalgraphproject;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.os.Looper;
 import android.util.Log;
-import android.view.View;
-import android.os.Handler;
 
-import java.security.PublicKey;
-import java.util.LinkedList;
 
 public class Presenter implements DrawContract.DrawPresenter {
 
-    private DrawContract.CanvasContract view;
+    private final DrawContract.CanvasContract view;
 
     public Presenter(DrawContract.CanvasContract v) {
         view = v;
@@ -25,7 +20,7 @@ public class Presenter implements DrawContract.DrawPresenter {
         }
     }
 
-    private class Vertex {
+    private static class Vertex {
         public float x;
         public float y;
         public Integer val;
@@ -118,31 +113,14 @@ public class Presenter implements DrawContract.DrawPresenter {
 
     @Override
     public void selectSquare(float x, float y){
-        Float max = Float.MAX_VALUE-100;
-        int xIdx = 0;
-        int yIdx = 0;
+        int xIdx;
+        int yIdx;
         Integer canvas = drawLength+m;
 
-        xIdx = (int) x/(drawLength/9) ;
-        yIdx = (int) y/(drawLength/9);
+        xIdx = (int) x/(canvas/9) ;
+        yIdx = (int) y/(canvas/9);
 
-        /*
 
-        for (int i = 0; i < 9; ++i) {
-            if (Math.abs(tiles[0][i].x-x) < Math.abs(tiles[0][i].x-max)) {
-                xIdx = i;
-                max = tiles[0][i].x;
-
-            }
-        }
-        max = Float.MAX_VALUE-100;
-        for (int i = 0; i < 9; ++i) {
-            if (Math.abs(tiles[i][0].y-y) < Math.abs(tiles[i][0].y-max)) {
-                yIdx = i;
-                max = tiles[i][0].y;
-            }
-        }
-        */
         Log.d("Selected", "X: " + xIdx + ", Y: " + yIdx);
 
 

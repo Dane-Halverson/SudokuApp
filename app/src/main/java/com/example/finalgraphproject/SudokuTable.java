@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class SudokuTable implements Serializable {
 
-    private SudokuTile[][] table;
+    private final SudokuTile[][] table;
 
     public SudokuTable() {
         table = new SudokuTile[9][9];

@@ -9,7 +9,7 @@ import android.view.View;
 
 public class DrawnSudokuTableView extends View implements DrawContract.CanvasContract {
 
-    private DrawContract.DrawPresenter drawPresenter;
+    private final DrawContract.DrawPresenter drawPresenter;
 
 
 
