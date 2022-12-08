@@ -33,7 +33,9 @@ public abstract class Graph implements Serializable {
     }
 
 
-
+    /**
+     * @param e edge to add
+     */
     public void addEdge(EdgeInterface e) {
 
         edges.get(e.getSrc()).add(e);

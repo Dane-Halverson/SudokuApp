@@ -1,10 +1,10 @@
 package com.example.finalgraphproject;
 
-public class SudokuModel implements MVP.Model{
+public class SudokuPresenter implements MVP.Model{
 
     MVP.ViewPresenter presenter;
 
-    SudokuModel(MVP.ViewPresenter p) {
+    SudokuPresenter(MVP.ViewPresenter p) {
         presenter = p;
     }
 

@@ -10,6 +10,9 @@ public class Presenter implements DrawContract.DrawPresenter {
 
     private final DrawContract.CanvasContract view;
 
+    /**
+     * @param v canvas that contains this presenter
+     */
     public Presenter(DrawContract.CanvasContract v) {
         view = v;
 
@@ -20,6 +23,9 @@ public class Presenter implements DrawContract.DrawPresenter {
         }
     }
 
+    /**
+     * class for storing values at coordinates
+     */
     private static class Vertex {
         public float x;
         public float y;
@@ -30,6 +36,10 @@ public class Presenter implements DrawContract.DrawPresenter {
 
     private Vertex selected;
 
+    /**
+     * @param canvas the canvas to draw to
+     * renders the current table
+     */
     @Override
     public void render(Canvas canvas) {
         drawTable(canvas);
@@ -52,6 +62,9 @@ public class Presenter implements DrawContract.DrawPresenter {
     Integer drawLength;
     final Integer m = 10;
 
+    /**
+     * @param canvas canvas to draw to
+     */
     @Override
     public void drawTable(Canvas canvas) {
         Paint dimLine = new Paint();
@@ -111,6 +124,11 @@ public class Presenter implements DrawContract.DrawPresenter {
 
     }
 
+    /**
+     * @param x x coord of touch
+     * @param y y coord of touch
+     * selects the pressed square
+     */
     @Override
     public void selectSquare(float x, float y){
         int xIdx;
@@ -131,7 +149,10 @@ public class Presenter implements DrawContract.DrawPresenter {
     }
 
 
-
+    /**
+     * @param canvas canvas to draw to
+     * draws stored numbers on table
+     */
     void drawValues(Canvas canvas) {
         Paint num = new Paint();
         num.setStrokeWidth(5);
@@ -148,6 +169,9 @@ public class Presenter implements DrawContract.DrawPresenter {
     }
 
 
+    /**
+     * @param i number to set selected sqaure to
+     */
     public void setSelected(Integer i) {
         if (selected != null) {
             selected.val = i;
@@ -158,6 +182,9 @@ public class Presenter implements DrawContract.DrawPresenter {
         view.dataUpdated();
     }
 
+    /**
+     * @return 2D array of integers corresponding to the values on the table
+     */
     @Override
     public Integer[][] getTable() {
         Integer[][] table = new Integer[9][9];

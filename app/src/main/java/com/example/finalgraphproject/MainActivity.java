@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity implements MVP.ViewPresenter
 
     DrawnSudokuTableView d;
 
-    SudokuModel model = new SudokuModel(this);
+    SudokuPresenter model = new SudokuPresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements MVP.ViewPresenter
     }
 
     public void OnClickSolve(View view) {
-        Intent showSolved = new Intent(this, SolvedTable.class);
+        Intent showSolved = new Intent(this, SolvedTableActivity.class);
         Bundle table = new Bundle();
         SudokuTable t = model.makeSudokuTable(d.getTable());
         if(!model.solveTable(t)) {

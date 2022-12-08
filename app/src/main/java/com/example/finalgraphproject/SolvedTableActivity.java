@@ -6,11 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class SolvedTable extends AppCompatActivity implements MVP.ViewPresenter {
+public class SolvedTableActivity extends AppCompatActivity implements MVP.ViewPresenter {
 
     DrawnSudokuTableSolved draw;
 
-    SudokuModel model = new SudokuModel(this);
+    SudokuPresenter model = new SudokuPresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

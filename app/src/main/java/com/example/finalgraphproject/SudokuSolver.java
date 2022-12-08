@@ -9,6 +9,9 @@ public class SudokuSolver {
 
     }
 
+    /**
+     * @param t table to solve
+     */
     public void solve(SudokuTable t) {
         SudokuGraphBuilder b = new SudokuGraphBuilder();
         SudokuGraph g = b.buildGraph(t);
@@ -25,8 +28,6 @@ public class SudokuSolver {
 
 
     protected Boolean DFSolve(SudokuGraph g, SudokuTile s, int idx) {
-
-
             s.setVisited();
             //System.out.println("Visited vertex: " + s.getNumber());
 
