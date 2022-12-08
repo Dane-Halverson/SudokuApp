@@ -8,4 +8,6 @@ public interface VertexInterface {
     boolean isVisited();
 
     Integer getNumber();
+
+    Boolean isStartTile();
 }

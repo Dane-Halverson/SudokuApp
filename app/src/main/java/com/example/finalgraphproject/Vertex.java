@@ -46,6 +46,11 @@ public class Vertex implements VertexInterface{
         return null;
     }
 
+    @Override
+    public Boolean isStartTile() {
+        return null;
+    }
+
 
 }
 

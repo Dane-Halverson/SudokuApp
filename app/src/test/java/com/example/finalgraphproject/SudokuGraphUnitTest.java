@@ -75,6 +75,21 @@ public class SudokuGraphUnitTest extends SudokuSolver {
 
         t2.printTable();
 
+        t.set(5, 0, 1);
+        t.set(5, 1, 1);
+
+
+        try {
+            sudokuSolver.solve(t);
+
+
+            System.out.println();
+
+            t.printTable();
+        }
+        catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
 
 
 

@@ -12,10 +12,12 @@ public class SudokuSolver {
     public void solve(SudokuTable t) {
         SudokuGraphBuilder b = new SudokuGraphBuilder();
         SudokuGraph g = b.buildGraph(t);
-
+        g.resetVertexStatus();
         if (!DFSolve(g, t.get(0, 0), 1)) {
+            g.resetVertexStatus();
             throw new RuntimeException("Table not solvable");
         }
+        g.resetVertexStatus();
 
 
     }
@@ -62,6 +64,9 @@ public class SudokuSolver {
                 if (idx == 81) {
                     return true;
                 }
+                if (!isValid(g, s)) {
+                    return false;
+                }
                 boolean allValid = true;
                 for (int edgeIdx = 0; edgeIdx < neighborList.size(); edgeIdx++) {
 
@@ -88,7 +93,11 @@ public class SudokuSolver {
     protected Boolean isValid(SudokuGraph g, SudokuTile t) {
         LinkedList<VertexInterface> l = g.getNeighbors(t);
         for (VertexInterface i: l) {
-            if (i.getNumber().equals(t.getNumber())) {
+            if (i.getNumber() == t.getNumber() && i.isStartTile() && t.isStartTile()) {
+
+                throw new RuntimeException("Table Not Solvable");
+            }
+            if (i.getNumber() == t.getNumber()) {
                 return false;
             }
         }
