@@ -10,5 +10,6 @@
     <string name="s_eight">8</string>
     <string name="s_nine">9</string>
     <string name="b_solve">Solve</string>
+    <string name="btn_back">Solve New Sudoku Table</string>
 
 </resources>

@@ -17,7 +17,6 @@ public class SudokuTable implements Serializable {
 
 
     public void set(Integer value, Integer row, Integer column) {
-
         table[row][column].setNumber(value);
     }
 

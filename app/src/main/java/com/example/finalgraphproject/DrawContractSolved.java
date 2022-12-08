@@ -10,7 +10,8 @@ public interface DrawContractSolved {
 
     public interface DrawPresenter {
         void drawTable(Canvas canvas);
-        void Render(Canvas canvas, Integer[][] table);
-        void drawNumbers(Canvas canvas, Integer[][] table);
+        void render(Canvas canvas);
+        void drawNumbers(Canvas canvas);
+        void setTable(Integer[][] table);
     }
 }

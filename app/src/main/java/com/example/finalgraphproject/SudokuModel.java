@@ -1,17 +1,23 @@
 package com.example.finalgraphproject;
 
 public class SudokuModel implements MVP.Model{
-    SudokuSolver sudokuSolver;
+
+    MVP.ViewPresenter presenter;
+
+    SudokuModel(MVP.ViewPresenter p) {
+        presenter = p;
+    }
+
+    SudokuSolver sudokuSolver = new SudokuSolver();
     @Override
     public boolean solveTable(SudokuTable table) {
 
         try {
             sudokuSolver.solve(table);
         }
-        catch (Exception e) {
+        catch (RuntimeException e) {
             return false;
         }
-
         return true;
     }
 
@@ -20,7 +26,8 @@ public class SudokuModel implements MVP.Model{
         SudokuTable t = new SudokuTable();
         for (int i = 0; i < 9; ++i) {
             for (int j = 0; j < 9; ++j) {
-                t.set(table[i][j], i, j);
+                if (table[i][j] != null)
+                    t.set(table[i][j], i, j);
             }
         }
         return t;

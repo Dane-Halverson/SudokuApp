@@ -55,12 +55,13 @@ public class Presenter implements DrawContract.DrawPresenter {
     }
 
     Integer drawLength;
+    final Integer m = 10;
 
     @Override
     public void drawTable(Canvas canvas) {
         Paint dimLine = new Paint();
         Integer w = canvas.getWidth();
-        final Integer m = 10;
+
         drawLength = w - m;
         dimLine.setStrokeWidth(5f);
         Integer space = drawLength/9;
@@ -120,9 +121,12 @@ public class Presenter implements DrawContract.DrawPresenter {
         Float max = Float.MAX_VALUE-100;
         int xIdx = 0;
         int yIdx = 0;
+        Integer canvas = drawLength+m;
 
+        xIdx = (int) x/(drawLength/9) ;
+        yIdx = (int) y/(drawLength/9);
 
-
+        /*
 
         for (int i = 0; i < 9; ++i) {
             if (Math.abs(tiles[0][i].x-x) < Math.abs(tiles[0][i].x-max)) {
@@ -138,9 +142,14 @@ public class Presenter implements DrawContract.DrawPresenter {
                 max = tiles[i][0].y;
             }
         }
+        */
         Log.d("Selected", "X: " + xIdx + ", Y: " + yIdx);
+
+
         selected = tiles[yIdx][xIdx];
         view.dataUpdated();
+
+
     }
 
 
@@ -162,8 +171,11 @@ public class Presenter implements DrawContract.DrawPresenter {
 
 
     public void setSelected(Integer i) {
-        if (selected != null)
+        if (selected != null) {
             selected.val = i;
+        }
+
+
 
         view.dataUpdated();
     }
@@ -174,6 +186,7 @@ public class Presenter implements DrawContract.DrawPresenter {
         for (int i = 0; i < 9; ++i) {
             for (int j = 0; j < 9; ++j) {
                 table[i][j] = tiles[i][j].val;
+
             }
         }
         return table;

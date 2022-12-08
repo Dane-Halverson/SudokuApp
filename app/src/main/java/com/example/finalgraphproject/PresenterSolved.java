@@ -12,6 +12,15 @@ public class PresenterSolved implements DrawContractSolved.DrawPresenter {
         public Integer val;
     }
 
+    public void setTable(Integer [][] table) {
+        for (int i = 0; i < 9; ++i) {
+            for (int j = 0; j < 9; ++j) {
+                tiles[i][j].val = table[i][j];
+            }
+        }
+    }
+
+
     private DrawContractSolved.DrawingView view;
 
     private final Vertex[][] tiles = new Vertex[9][9];
@@ -88,13 +97,13 @@ public class PresenterSolved implements DrawContractSolved.DrawPresenter {
     }
 
     @Override
-    public void Render(Canvas canvas, Integer[][] table) {
+    public void render(Canvas canvas) {
         drawTable(canvas);
-        drawNumbers(canvas, table);
+        drawNumbers(canvas);
     }
 
     @Override
-    public void drawNumbers(Canvas canvas, Integer[][] table) {
+    public void drawNumbers(Canvas canvas) {
         Paint num = new Paint();
         num.setStrokeWidth(5);
         num.setColor(Color.BLACK);

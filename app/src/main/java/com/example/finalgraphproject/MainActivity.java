@@ -4,16 +4,20 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MVP.ViewPresenter {
 
     DrawnSudokuTableView d;
+
+    SudokuModel model = new SudokuModel(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +79,37 @@ public class MainActivity extends AppCompatActivity {
     public void OnClickDelete(View view) {
         d.SetTile(null);
         d.dataUpdated();
+    }
+
+    public void OnClickSolve(View view) {
+        Intent showSolved = new Intent(this, SolvedTable.class);
+        Bundle table = new Bundle();
+        SudokuTable t = model.makeSudokuTable(d.getTable());
+        if(!model.solveTable(t)) {
+            Toast toast = new Toast(this);
+            toast.setText("Table Not Solvable");
+            toast.show();
+        }
+        else {
+            table.putSerializable("table", t);
+            showSolved.putExtras(table);
+            startActivity(showSolved);
+        }
+        t.printTable();
+
+
+
+    }
+
+
+    @Override
+    public void DisplayTable() {
+
+    }
+
+    @Override
+    public Integer[][] getTable() {
+        return new Integer[0][];
     }
 
 
